@@ -1,31 +1,29 @@
 # Recoil
 
-Rails delivery method. Send via Amazon SES, but with local blacklist
-TODO: Write a gem description
+Rails delivery method. Send via Amazon SES, but with local blacklist.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile and run `bundle install`:
 
 ```ruby
 gem 'recoil'
 ```
 
-And then execute:
-
-    $ bundle
-
-
 Add initializer:
-
 ```ruby
 ActiveSupport.on_load :action_mailer do
   ActionMailer::Base.add_delivery_method :recoil, Recoil::DeliveryMethod, {}
 end
 ```
 
-Add endpoint to routes:
+Copy migrations and run
+```ruby
+rake recoil:install:migrations
+rake db:migrate
+```
 
+Add endpoint to routes:
 ```ruby
 mount Recoil::Engine => '/ses'
 ```
