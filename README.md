@@ -1,4 +1,5 @@
 # Recoil
+![Recoil](http://nowthatsgangsta.com/wp-content/uploads/Sniper-Rrifle-Recoil.gif)
 
 Rails delivery method. Send via Amazon SES, but with local blacklist.
 
