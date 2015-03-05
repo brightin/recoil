@@ -9,7 +9,7 @@ module Recoil
     end
 
     def deliver!(email)
-      # return if Recoil.blacklisted?(email['to'])
+      return if Email.blacklisted?(email['to'])
       AWS::SimpleEmailService.new.send_raw_email(email)
     end
   end

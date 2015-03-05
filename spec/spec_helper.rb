@@ -1,4 +1,11 @@
+ENV["RAILS_ENV"] = "test"
+ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
+
+require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../test/dummy/db/migrate", __FILE__)]
+ActiveRecord::Migrator.migrations_paths << File.expand_path('../../db/migrate', __FILE__)
 require 'vcr'
+require 'rspec/rails'
 
 RSpec.configure do |c|
   c.expect_with :rspec do |expectations|

@@ -7,7 +7,10 @@ module Recoil
       def process!
         body = JSON.parse(message['Message'])
         body['bounce']['bouncedRecipients'].each do |bounce|
-          Recoil.add_bounce(bounce['emailAddress'], body['bounce']['bounceType'])
+          Bounce.create!(
+            email: bounce['emailAddress'],
+            bounce_type: body['bounce']['bounceType']
+          )
         end
       end
     end

@@ -19,8 +19,10 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'rails', '>= 4.0'
-  s.add_dependency 'aws-sdk', '~> 1.63.0'
+  s.add_dependency 'aws-sdk', '~> 1.60'
   s.add_development_dependency "rspec", "~> 3.2.0"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "sqlite3"
   s.add_development_dependency "vcr", "~> 2.9.0"
   s.add_development_dependency "webmock", "~> 1.20.0"
 end

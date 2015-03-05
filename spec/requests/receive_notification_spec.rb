@@ -1,9 +1,8 @@
 require 'spec_helper'
-require 'recoil/message/notification'
 
-RSpec.describe Recoil::Message::Notification do
-  it 'performs a http get on the url' do
-    message = {
+RSpec.describe 'Receive notification', type: :request do
+  it 'adds notifications to the database' do
+     body = {
       "Type" => "Notification",
       "MessageId" => "id",
       "TopicArn" => "arn:aws:sns:",
@@ -14,10 +13,12 @@ RSpec.describe Recoil::Message::Notification do
       "SigningCertURL" => "https",
       "UnsubscribeURL" => "https"
     }
-    expect(Recoil::Bounce).to receive(:create!).with(
-      email: 'example@example.com',
-      bounce_type: 'Undetermined'
-    )
-    result = described_class.new(message).process!
+
+    expect {
+     post '/ses', body
+    }.to change(Recoil::Bounce, :count).by(1)
+
+    expect(Recoil::Bounce.last.email).to eq 'example@example.com'
+    expect(Recoil::Bounce.last.bounce_type).to eq 'Undetermined'
   end
 end
