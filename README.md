@@ -27,7 +27,7 @@ end
 Add endpoint to routes:
 
 ```ruby
-mount Recoil::Endpoint => '/ses'
+mount Recoil::Engine => '/ses'
 ```
 
 Subscribe to SES notifications... and profit!
