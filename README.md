@@ -1,5 +1,6 @@
 # Recoil
 [![Gem Version](https://badge.fury.io/rb/recoil.svg)](http://badge.fury.io/rb/recoil)
+
 ![Recoil](http://nowthatsgangsta.com/wp-content/uploads/Sniper-Rrifle-Recoil.gif)
 
 Rails delivery method. Send via Amazon SES, but with local blacklist.
