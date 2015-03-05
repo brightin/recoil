@@ -10,17 +10,15 @@ Add this line to your application's Gemfile and run `bundle install`:
 gem 'recoil'
 ```
 
-Add initializer:
-```ruby
-ActiveSupport.on_load :action_mailer do
-  ActionMailer::Base.add_delivery_method :recoil, Recoil::DeliveryMethod, {}
-end
-```
-
 Copy migrations and run
 ```ruby
 rake recoil:install:migrations
 rake db:migrate
+```
+
+Change the action mailer delivery method:
+```ruby
+config.action_mailer.delivery_method = :recoil
 ```
 
 Add endpoint to routes:
