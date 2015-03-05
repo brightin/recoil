@@ -2,6 +2,8 @@
 
 Rails delivery method. Send via Amazon SES, but with local blacklist.
 
+Warning: This is an early version of the gem. If you're sending an email to multiple receivers this gem might break in unexpected ways.
+
 ## Installation
 
 Add this line to your application's Gemfile and run `bundle install`:
