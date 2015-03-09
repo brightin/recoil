@@ -1,7 +1,7 @@
-require 'recoil/engine'
-require 'recoil/delivery_method'
-require 'recoil/message'
 require 'recoil/email'
+require 'recoil/engine'
+require 'recoil/interceptor'
+require 'recoil/message'
 
 module Recoil
   mattr_accessor :blacklist_threshold

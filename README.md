@@ -21,9 +21,9 @@ rake recoil:install:migrations
 rake db:migrate
 ```
 
-Change the action mailer delivery method:
+Add an initializer: `config/initializers/recoil.rb` with the following content:
 ```ruby
-config.action_mailer.delivery_method = :recoil
+ActionMailer::Base.register_interceptor(Recoil::Interceptor)
 ```
 
 Add endpoint to routes:
