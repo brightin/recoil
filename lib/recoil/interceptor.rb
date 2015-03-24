@@ -1,6 +1,6 @@
 class Interceptor
   def self.delivering_email(message)
-    if Email.blacklisted?(email['to'])
+    if message.to.any? { |email| Email.blacklisted?(email) }
       message.perform_deliveries = false
     end
   end
