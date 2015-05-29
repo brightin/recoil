@@ -1,8 +1,6 @@
 # Recoil
 [![Gem Version](https://badge.fury.io/rb/recoil.svg)](http://badge.fury.io/rb/recoil)
 
-![Recoil](http://nowthatsgangsta.com/wp-content/uploads/Sniper-Rrifle-Recoil.gif)
-
 Rails delivery method. Send via Amazon SES, but with local blacklist.
 
 Warning: This is an early version of the gem. If you're sending an email to multiple receivers this gem might break in unexpected ways.
