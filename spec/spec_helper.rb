@@ -1,12 +1,9 @@
 ENV['RAILS_ENV'] = 'test'
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
-if ENV['COVERAGE']
-  require 'simplecov'
-  SimpleCov.start do
-    minimum_coverage 90
-    add_filter '/spec/'
-  end
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
 end
 
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)

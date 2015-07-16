@@ -4,7 +4,7 @@ rvm:
   - 2.1.6
   - 2.2.2
 env:
-  - COVERAGE=true
+  - CODECLIMATE_REPO_TOKEN=8320e6374064729f72e516cbad8c8103ba96ceed1f37b00137c8b81f7cc83e5e
 script:
   - ./bin/rubocop
   - ./bin/brakeman
