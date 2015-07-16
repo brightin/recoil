@@ -41,9 +41,7 @@ There is just a single configuration option for recoil: `blacklist_threshold`. T
 
 ```ruby
 # config/initializers/recoil.rb
-  Recoil.setup do |c|
-    c.blacklist_threshold = ->(scope) { scope.where('created_at > ?', 1.week.ago).count > 10 }
-  end
+  Recoil.blacklist_threshold = ->(scope) { scope.where('created_at > ?', 1.week.ago).count > 10 }
 ```
 
 ##RDocs

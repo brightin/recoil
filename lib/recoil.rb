@@ -6,8 +6,4 @@ require 'recoil/message'
 module Recoil
   mattr_accessor :blacklist_threshold
   @@blacklist_threshold = ->(scope) { scope.where('created_at > ?', 2.weeks.ago).count > 10 }
-
-  def self.setup
-    yield self
-  end
 end
