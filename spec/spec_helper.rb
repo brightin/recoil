@@ -1,6 +1,14 @@
 ENV['RAILS_ENV'] = 'test'
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
+if ENV['COVERAGE']
+  require "simplecov"
+  SimpleCov.start do
+    minimum_coverage 90
+    add_filter "/spec/"
+  end
+end
+
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 ActiveRecord::Migrator.migrations_paths = [File.expand_path('../../test/dummy/db/migrate', __FILE__)]
 ActiveRecord::Migrator.migrations_paths << File.expand_path('../../db/migrate', __FILE__)
