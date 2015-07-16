@@ -1,6 +1,7 @@
 # Recoil
 [![Gem Version](https://badge.fury.io/rb/recoil.svg)](http://badge.fury.io/rb/recoil)
 [![Build Status](https://travis-ci.org/brightin/recoil.svg?branch=master)](https://travis-ci.org/brightin/recoil)
+[![Code Climate](https://codeclimate.com/github/brightin/recoil/badges/gpa.svg)](https://codeclimate.com/github/brightin/recoil)
 
 Recoil makes sure you're Amazon SES reputation is preserved by blacklisting emails with a bad reputation. Recoil does this with two simple tools:
 1. A HTTP-endpoint to receive bounce notifications and saves them in the database.
