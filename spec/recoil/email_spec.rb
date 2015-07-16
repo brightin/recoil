@@ -8,7 +8,7 @@ module Recoil
       Bounce.create!(email: email.to_s, created_at: created_at)
     end
 
-    describe ".blacklisted?" do
+    describe '.blacklisted?' do
       it 'defaults to a blacklist emails with more than 10 bounces in the last two weeks' do
         10.times { create_bounce }
         expect(email).not_to be_blacklisted
@@ -25,7 +25,7 @@ module Recoil
       it 'is configurable via the recoil config' do
         original_threshold = Recoil.blacklist_threshold
 
-        Recoil.blacklist_threshold = ->(scope) { true }
+        Recoil.blacklist_threshold = ->(_scope) { true }
         expect(email).to be_blacklisted
 
         Recoil.blacklist_threshold = original_threshold

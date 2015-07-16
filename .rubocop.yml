@@ -1,0 +1,99 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - bin/**/*
+    - spec/dummy/**/*
+  RunRailsCops: true
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'inject'
+    detect: 'find'
+    find_all: 'select'
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  MaxLineLength: 50
+
+Style/PredicateName:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/TrivialAccessors:
+  IgnoreClassMethods: true
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 403
+
+Style/ClassVars:
+  Enabled: false
+
+# Avoid chaining a method call on a do...end block.
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+# Use %i or %I for arrays of symbols
+Style/SymbolArray:
+  Enabled: true
+
+# Consider `method *args` ambiguous and require `method(*args)`. The former is
+# fine so disable this rule by default.
+Lint/AmbiguousOperator:
+  Enabled: false
+
+# We are all responsible adults. We know when we mean to write `if a = 5` and when
+# we mean to write `if a == 5`.
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# Prefer alias_method over alias. Disable because alias is fine.
+Style/Alias:
+  Enabled: false
+
+# Disallow the case equality operator (===). Disable because this is a useful and
+# perfectly acceptable practice.
+Style/CaseEquality:
+  Enabled: false
+
+# Ensure multi-line blocks use `do/end` and single-line blocks use `{/}` as
+# delimiters. This is fine rule, except in case of RSpec tests, where the
+# `expect { ... }.to` is idiomatically written across multiple lines. Disable
+# only in specs.
+Style/BlockDelimiters:
+  Exclude:
+    - spec/**/*_spec.rb
+
+# Ensure short conditionals are written on a single line. The only exception
+# here is Rails initializers, which sometimes have entire blocks of code with a
+# `if defined?` modifier, which is acceptable.
+Style/IfUnlessModifier:
+  Exclude:
+    - 'config/initializers/*'
+
+# The top-level `describe` call should reference a class or module that is
+# under test. This is not the case in some kinds of integration tests that are
+# not tied to a particular class or module. Disable this cop in those cases.
+RSpec/DescribeClass:
+  Exclude:
+    - spec/requests/**/*
+    - spec/features/**/*

@@ -1,8 +1,8 @@
-ENV["RAILS_ENV"] = "test"
+ENV['RAILS_ENV'] = 'test'
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
-ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../test/dummy/db/migrate", __FILE__)]
+require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+ActiveRecord::Migrator.migrations_paths = [File.expand_path('../../test/dummy/db/migrate', __FILE__)]
 ActiveRecord::Migrator.migrations_paths << File.expand_path('../../db/migrate', __FILE__)
 require 'vcr'
 require 'rspec/rails'
@@ -20,9 +20,7 @@ RSpec.configure do |c|
 
   c.warnings = true
 
-  if c.files_to_run.one?
-    c.default_formatter = 'doc'
-  end
+  c.default_formatter = 'doc' if c.files_to_run.one?
 
   c.order = :random
 
@@ -30,7 +28,7 @@ RSpec.configure do |c|
 end
 
 VCR.configure do |c|
-  c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.configure_rspec_metadata!
 end
