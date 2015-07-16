@@ -15,7 +15,7 @@ RSpec.describe 'Receive notification', type: :request do
     }
 
     expect {
-     post '/ses', body
+      post '/ses', body.to_json
     }.to change(Recoil::Bounce, :count).by(1)
 
     expect(Recoil::Bounce.last.email).to eq 'example@example.com'
