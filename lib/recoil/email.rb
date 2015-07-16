@@ -1,11 +1,17 @@
 module Recoil
-  Email = Struct.new(:bounces) do
-    def self.blacklisted?(email)
-      new(Bounce.where(email: email).count).blacklisted?
+  Email = Struct.new(:email) do
+    def blacklisted?
+      Recoil.blacklist_threshold.call(scope)
     end
 
-    def blacklisted?
-      Recoil.blacklist_threshold.call(self)
+    def to_s
+      email
+    end
+
+    private
+
+    def scope
+      Bounce.where(email: email)
     end
   end
 end
