@@ -2,10 +2,10 @@ ENV['RAILS_ENV'] = 'test'
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
 if ENV['COVERAGE']
-  require "simplecov"
+  require 'simplecov'
   SimpleCov.start do
     minimum_coverage 90
-    add_filter "/spec/"
+    add_filter '/spec/'
   end
 end
 
@@ -14,6 +14,8 @@ ActiveRecord::Migrator.migrations_paths = [File.expand_path('../../test/dummy/db
 ActiveRecord::Migrator.migrations_paths << File.expand_path('../../db/migrate', __FILE__)
 require 'vcr'
 require 'rspec/rails'
+
+ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |c|
   c.expect_with :rspec do |expectations|

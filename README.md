@@ -1,5 +1,6 @@
 # Recoil
 [![Gem Version](https://badge.fury.io/rb/recoil.svg)](http://badge.fury.io/rb/recoil)
+[![Build Status](https://travis-ci.org/brightin/recoil.svg?branch=master)](https://travis-ci.org/brightin/recoil)
 
 Rails delivery method. Send via Amazon SES, but with local blacklist.
 
