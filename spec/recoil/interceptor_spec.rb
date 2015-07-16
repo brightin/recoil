@@ -4,7 +4,7 @@ module Recoil
   RSpec.describe Interceptor do
     FakeMessage = Struct.new(:to)
 
-    describe ".delivering_email" do
+    describe '.delivering_email' do
       it 'does send all email' do
         message = FakeMessage.new(['example@example.com', 'example2@example.com'])
         Interceptor.delivering_email(message)
