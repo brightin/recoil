@@ -2,7 +2,7 @@ ENV['RAILS_ENV'] = 'test'
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
 if ENV['CODECLIMATE_REPO_TOKEN']
-  require "codeclimate-test-reporter"
+  require 'codeclimate-test-reporter'
   CodeClimate::TestReporter.start
 end
 
@@ -38,4 +38,5 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.configure_rspec_metadata!
+  c.ignore_hosts 'codeclimate.com'
 end
