@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/brightin/recoil/badges/gpa.svg)](https://codeclimate.com/github/brightin/recoil)
 [![Test Coverage](https://codeclimate.com/github/brightin/recoil/badges/coverage.svg)](https://codeclimate.com/github/brightin/recoil/coverage)
 
-Recoil makes sure you're Amazon SES reputation is preserved by blacklisting emails with a bad reputation. Recoil does this with two simple tools:
+Recoil makes sure your Amazon SES reputation is preserved by blacklisting emails with a bad reputation. Recoil does this with two simple tools:
 
 1. An HTTP endpoint to receive bounce notifications and save them to the database.
 2. An ActionMailer interceptor which is able to filter emails with high bounce rates.
