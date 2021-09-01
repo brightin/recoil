@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
 
-  s.add_dependency 'rails', '>= 4.0'
+  s.add_dependency 'rails', '>= 5.2'
   s.add_dependency 'aws-sdk', '< 2'
 
   s.add_development_dependency 'brakeman'
@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop-rspec'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'vcr', '~> 2.9.0'
-  s.add_development_dependency 'webmock', '~> 1.20.0'
+  s.add_development_dependency 'webmock', '~> 2.3.2'
 end
